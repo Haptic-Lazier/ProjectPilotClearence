@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from termcolor import colored                                         
-inp = input('Enter Selected Airport: ')                                                          
-dict = metar_dict(inp)                                                
+from termcolor import colored
 count = 0 
 
 
@@ -22,8 +20,7 @@ def metar_get(aic):
 
 def metar_dict(aic):
     tempcounter = 0
-    metar = metar_get(inp)
-    metar = metar.split()
+    metar = aic.split()
     clouds = []
     information = {'time': metar[1], 'wind': '', 'vis': '', 'clouds': '', 'baro': '', 'temp': '', 'dew': ''}
 
@@ -45,7 +42,6 @@ def metar_dict(aic):
 
     information.update({'clouds': clouds})
     return information
-                                                                                                         
                                                                       
 def densityalt(baro, temp, alt = 1100):                               
     baro = baro[1:]                                                   
@@ -77,7 +73,7 @@ def Condition(clouds, vis, glvl):
     else:                                                             
         return (colored("VFR", "green"))                                  
                                                                       
-                                                                      
+dict = (metar_dict(metar_get(input('Enter Selected Airport: '))))                                                                      
 print('Report Time:', dict['time'])                                   
 print('Wind:', dict['wind'])                                          
 if int(dict['vis'][:-2]) < 3:                                         
