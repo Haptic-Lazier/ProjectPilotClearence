@@ -89,5 +89,5 @@ print('baro:', dict['baro'])
 print('temp:', dict['temp'])                                          
 print('Dew Point:', dict['dew'])                                      
                                                                       
-print(f"Outside Condition: {Condition(dict['clouds'], dict['vis'], 10)
+print(f"Outside Condition: {Condition(dict['clouds'], dict['vis'], 10)}")
 print(f"Density Altitude: {densityalt(dict['baro'], dict['temp'])}")  
