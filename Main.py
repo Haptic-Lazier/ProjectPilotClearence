@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from termcolor import colored                                         
-inp = "KOMA"                                                          
+inp = input('Enter Selected Airport: ')                                                          
 dict = metar_dict(inp)                                                
 count = 0 
 
@@ -22,7 +22,7 @@ def metar_get(aic):
 
 def metar_dict(aic):
     tempcounter = 0
-    metar = " KMLE 241655Z AUTO 29019G26KT 10SM OVC010 BKN020 41/M01 A3010 RMK AO2 T01161012"
+    metar = metar_get(inp)
     metar = metar.split()
     clouds = []
     information = {'time': metar[1], 'wind': '', 'vis': '', 'clouds': '', 'baro': '', 'temp': '', 'dew': ''}
